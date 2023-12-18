@@ -31,32 +31,32 @@
         </div>
     </nav>
     <section class="container-fluid"
-        style="background-image: url(../images/pexels-asad-photo-maldives-1450353.jpg); background-size: cover; height:100vh; display: flex; align-items: center; justify-content: center;">
+        style="background-image: url(../images/background.jpeg); background-size: cover; height:100vh; display: flex; align-items: center; justify-content: center;">
 
-        <div class="card bg-warning" style="width: 50rem;">
-            <div class="card-body">
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control"  placeholder="name">
-                    <label >Nome</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control"  placeholder="name@example.com">
-                    <label for="floatingInput">Email</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="sua localização">
-                    <label for="floatingInput">CEP de Origem</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">CEP de Destino</label>
-                </div>
-                <div class="container-fluid d-flex justify-content-between">
-                    <h3><span class="badge bg-secondary">R$valor</span></h3>
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
-                </div>
-
-            </div>
+        <div class="card bg-dark" style="width: 50rem;">
+            <form class="row g-3 p-5">
+             <div class="col-md-12">
+				    <label for="nome" class="form-label text-light">Nome</label>
+				    <input type="text" class="form-control" id="nome">
+				  </div>
+				  <div class="col-md-12">
+				    <label for="inputEmail4" class="form-label text-light">Email</label>
+				    <input type="email" class="form-control" id="inputEmail4" placeholder="name@example.com">
+				  </div>
+				  
+				  <div class="col-md-6">
+				    <label for="inputOrigem" class="form-label text-light">Seu CEP</label>
+				    <input type="text" class="form-control" id="inputOrigem">
+				  </div>
+				  <div class="col-md-6">
+				    <label for="inputDestino" class="form-label text-light">CEP do Destino</label>
+				    <select id="inputDestino" class="form-control">
+				    </select>
+				  </div>
+				  <div class="col-12">
+				    <button type="submit" class="btn btn-primary">Cadastrar</button>
+				  </div>
+			</form>
         </div>
 
     </section>

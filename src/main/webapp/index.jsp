@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -34,24 +35,23 @@
         style="background-image: url(./images/background.jpeg); background-size: cover; height:100vh; display: flex; align-items: center; justify-content: center;">
 
         <div class="card bg-dark" style="width: 50rem;">
-            <form class="row g-3 p-5">
+            <form class="row g-3 p-5" action="./cadastroViagem-create" method="post">
              <div class="col-md-12">
 				    <label for="nome" class="form-label text-light">Nome</label>
-				    <input type="text" class="form-control" id="nome">
+				    <input type="text" class="form-control" id="nome" name = "Nome" required>
 				  </div>
 				  <div class="col-md-12">
 				    <label for="inputEmail4" class="form-label text-light">Email</label>
-				    <input type="email" class="form-control" id="inputEmail4" placeholder="name@example.com">
+				    <input type="email" class="form-control" id="inputEmail4" placeholder="name@example.com" name="Email" required>
 				  </div>
 				  
 				  <div class="col-md-6">
 				    <label for="inputOrigem" class="form-label text-light">Seu CEP</label>
-				    <input type="text" class="form-control" id="inputOrigem">
+				    <input type="text" class="form-control" id="inputOrigem" name="CEPOrigem" required>
 				  </div>
 				  <div class="col-md-6">
 				    <label for="inputDestino" class="form-label text-light">CEP do Destino</label>
-				    <select id="inputDestino" class="form-control">
-				    </select>
+				    <input type="text" id="inputDestino" class="form-control" name="CEPDestino" required>
 				  </div>
 				  <div class="col-12">
 				    <button type="submit" class="btn btn-primary">Cadastrar</button>

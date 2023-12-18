@@ -29,4 +29,14 @@
     <servlet-name>cadastroViagemServlet</servlet-name>
     <url-pattern>/cadastroViagemServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>cadastroViagemController</display-name>
+    <servlet-name>cadastroViagemController</servlet-name>
+    <servlet-class>controller.cadastroViagemController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cadastroViagemController</servlet-name>
+    <url-pattern>/cadastroViagemController</url-pattern>
+  </servlet-mapping>
 </web-app>

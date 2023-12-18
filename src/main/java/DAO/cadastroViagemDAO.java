@@ -7,16 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import conexao.ConnectionFactory;
-import model.cadastroDestino;
+import model.cadastroViagem;
 
 public class cadastroViagemDAO {
-	public void save(cadastroDestino cdest) {
+	public void save(cadastroViagem cdest) {
 		/*
 		 * Isso é um sql comum as ? são os parametros que vamos adicionar na base de
 		 * dados.
 		 */
-		String sql = "INSERT INTO cadastrodestino(id,email,nome,CEPOrigem,CEPDestino,valorPassagem)"
-				+ "VALUES(?,?,?,?,?,?)";
+		String sql = "INSERT INTO cadastrodestino(id,email,nome,CEPOrigem,CEPDestino)"
+				+ "VALUES(?,?,?,?,?)";
 
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -35,11 +35,11 @@ public class cadastroViagemDAO {
 			// adiciona o valor do terceiro parâmetro do sql
 			pstm.setString(3, cdest.getNome());
 			// adiciona o valor do quarto parâmetro do sql
-			pstm.setInt(4, cdest.getCEPOrigem());
+			pstm.setString(4, cdest.getCEPOrigem());
 			// adiciona o valor do quinto parâmetro do sql
-			pstm.setInt(5, cdest.getCEPDestino());
-			// adiciona o valor do sexto parâmetro do sql
-			pstm.setDouble(6, cdest.getValorPassagem());
+			pstm.setString(5, cdest.getCEPDestino());
+			
+		
 
 			// executa a sql para iserção de dados
 			pstm.execute();
@@ -61,7 +61,7 @@ public class cadastroViagemDAO {
 		}
 	}
 
-	public void removeById(String id) {
+	public void removeById(int id) {
 
 		String sql = "DELETE FROM cadastrodestino WHERE id = ?";
 
@@ -73,7 +73,7 @@ public class cadastroViagemDAO {
 
 			pstm = conn.prepareStatement(sql);
 
-			pstm.setString(1, id);
+			pstm.setInt(1, id);
 
 			pstm.execute();
 
@@ -95,12 +95,12 @@ public class cadastroViagemDAO {
 		}
 	}
 
-	public void update(cadastroDestino cdest) {
+	public void update(cadastroViagem cdest) {
 		/*
 		 * Isso é um sql comum as ? são os parametros que vamos adicionar na base de
 		 * dados.
 		 */
-		String sql = "UPDATE cadastrodestino SET id = ?, email = ?, nome = ?, CEPOrigem = ?, CEPDestino = ?, valorPassagem = ?"
+		String sql = "UPDATE cadastrodestino SET id = ?, email = ?, nome = ?, CEPOrigem = ?, CEPDestino = ?"
 				+ "WHERE id = ?";
 
 		Connection conn = null;
@@ -120,12 +120,10 @@ public class cadastroViagemDAO {
 			// adiciona o valor do terceiro parâmetro do sql
 			pstm.setString(3, cdest.getNome());
 			// adiciona o valor do quarto parâmetro do sql
-			pstm.setInt(4, cdest.getCEPOrigem());
+			pstm.setString(4, cdest.getCEPOrigem());
 			// adiciona o valor do quinto parâmetro do sql
-			pstm.setInt(5, cdest.getCEPDestino());
+			pstm.setString(5, cdest.getCEPDestino());
 			// adiciona o valor do sexto parâmetro do sql
-			pstm.setDouble(5, cdest.getValorPassagem());
-			// adiciona o valor do setimo parâmetro do sql
 			pstm.setInt(7, cdest.getId());
 
 			// executa a sql para iserção de dados
@@ -148,14 +146,14 @@ public class cadastroViagemDAO {
 		}
 	}
 
-	public List<cadastroDestino> getCadastroDestino() {
+	public List<cadastroViagem> getCadastroViagem() {
 		/*
 		 * Isso é um sql comum as ? são os parametros que vamos adicionar na base de
 		 * dados.
 		 */
 		String sql = "SELECT * FROM cadastrodestino";
 
-		List<cadastroDestino> cadasdestinos = new ArrayList<>();
+		List<cadastroViagem> cadasdestinos = new ArrayList<>();
 
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -174,7 +172,7 @@ public class cadastroViagemDAO {
 			// Enquanto existir dados no banco de dados faça
 			while (rset.next()) {
 
-				cadastroDestino cadasdestino = new cadastroDestino();
+				cadastroViagem cadasdestino = new cadastroViagem();
 
 				// recupera o senha do banco de dados e atribui ele ao objeto
 				cadasdestino.setId(rset.getInt("id"));
@@ -183,11 +181,9 @@ public class cadastroViagemDAO {
 				// recupera o nome do banco de dados e atribui ele ao objeto
 				cadasdestino.setNome(rset.getString("nome"));
 				// recupera o nome do banco de dados e atribui ele ao objeto
-				cadasdestino.setCEPOrigem(rset.getInt("CEPOrigem"));
+				cadasdestino.setCEPOrigem(rset.getString("CEPOrigem"));
 				// recupera o nome do banco de dados e atribui ele ao objeto
-				cadasdestino.setCEPDestino(rset.getInt("CEPDestino"));
-				// recupera o nome do banco de dados e atribui ele ao objeto
-				cadasdestino.setValorPassagem(rset.getDouble("valorPassagem"));
+				cadasdestino.setCEPDestino(rset.getString("CEPDestino"));
 
 				// adiciona o contato recuperado a lista de contatos
 				cadasdestinos.add(cadasdestino);
